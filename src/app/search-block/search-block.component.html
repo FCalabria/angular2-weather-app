@@ -1,0 +1,15 @@
+<div class="search-block-component">
+	<pre>SearchBlock</pre>
+	<form>
+		<pre>Just a normal, boring input &darr; </pre>
+		<input name="cityQuery" type="text" placeholder="Buscar ciudad" />
+	</form>
+	<div class="results-list">
+		<pre>ResultsList</pre>
+		<ul>
+			<li *ngFor="let result of results trackBy:result?._id">
+				<a>{{result.name}}, {{result.country}}</a>
+			</li>
+		</ul>
+	</div>
+</div>

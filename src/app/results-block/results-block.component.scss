@@ -1,0 +1,5 @@
+@import '../variables';
+.results-block-component {
+  @include boxDashedBorder(#00f);
+  width: 50%;
+}

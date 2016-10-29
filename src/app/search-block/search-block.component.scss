@@ -1,0 +1,30 @@
+@import '../variables';
+.search-block-component {
+  @include boxDashedBorder(#f00);
+  width: 50%;
+  input {
+    color: white;
+    font-family: $mainFont;
+    border: 1px dotted ;
+    background-color: #222;
+    margin: 5px 0px;
+    padding: 3px;
+    &:active, &:focus {
+      border-color: #7F7FE5;
+      outline: none;
+    }
+  }
+  .results-list {
+  @include boxDashedBorder(#0f0);
+  width: 100%;
+  ul {
+    list-style-type: square;
+    a {
+      cursor: pointer;
+      &:hover {
+        color: Darkgreen;
+      }
+    }
+  }
+}
+}
