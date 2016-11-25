@@ -13,6 +13,9 @@
       border-color: #7F7FE5;
       outline: none;
     }
+    &:disabled {
+      color: dimgrey;
+    }
   }
   .results-list {
   @include boxDashedBorder(#0f0);

@@ -1,8 +1,8 @@
 <div class="search-block-component">
 	<pre>SearchBlock</pre>
-	<form>
+	<form (ngSubmit)="onSubmit()">
 		<pre>Just a normal, boring input &darr; </pre>
-		<input name="cityQuery" type="text" placeholder="Buscar ciudad" />
+		<input [(ngModel)]="cityQuery" name="cityQuery" type="text" placeholder="Buscar ciudad" />
 	</form>
 	<div class="results-list">
 		<pre>ResultsList</pre>

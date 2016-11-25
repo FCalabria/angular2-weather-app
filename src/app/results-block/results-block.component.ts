@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import * as _ from "lodash";
 
+import './results-block.component.scss';
 export class Forecast {
     weather: [{
         description: string,
