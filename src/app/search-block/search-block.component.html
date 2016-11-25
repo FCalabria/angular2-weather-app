@@ -2,13 +2,17 @@
 	<pre>SearchBlock</pre>
 	<form (ngSubmit)="onSubmit()">
 		<pre>Just a normal, boring input &darr; </pre>
-		<input [(ngModel)]="cityQuery" name="cityQuery" type="text" placeholder="Buscar ciudad" />
+		<input [(ngModel)]="cityQuery"
+		name="cityQuery" type="text"
+		placeholder="Buscar ciudad"
+		pattern="\S{3,}"
+		[disabled]="!fullList"/>
 	</form>
 	<div class="results-list">
 		<pre>ResultsList</pre>
 		<ul>
 			<li *ngFor="let result of results trackBy:result?._id">
-				<a>{{result.name}}, {{result.country}}</a>
+				<a (click)="selectCity(result)">{{result.name}}, {{result.country}}</a>
 			</li>
 		</ul>
 	</div>

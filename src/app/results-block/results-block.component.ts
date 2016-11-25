@@ -1,40 +1,11 @@
 import { Component } from '@angular/core';
+import {WeatherService} from '../services/weather.service';
+import {Weather} from '../classes/weather';
 import * as _ from "lodash";
 
 import './results-block.component.scss';
-export class Forecast {
-    weather: [{
-        description: string,
-        icon: string
-    }];
-    main: {
-        temp: number;
-        temp_min: number;
-        temp_max: number;
-    };
-    sys: {
-        country: string;
-    };
-    name: string;
-    constructor(data?: Forecast) {
-        const defaults = {
-            weather: [{
-                description: '',
-                icon: ''
-            }],
-            main: {
-                temp: 0,
-                temp_min: 0,
-                temp_max: 0
-            },
-            sys: {
-                country: ''
-            },
-            name: ''
-        };
-        return <Forecast>_.defaultsDeep(data, defaults);
-    }
-};
+
+import './results-block.component.scss';
 
 @Component({
     selector: 'results-block',
@@ -42,7 +13,7 @@ export class Forecast {
 })
 
 export class ResultsBlockComponent {
-    forecast = new Forecast();
+    forecast = new Weather();
     iconUrl: string = '';
     noResult: boolean = true;
     constructor() {
