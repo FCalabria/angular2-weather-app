@@ -4,11 +4,12 @@ interface IWeatherTemps {
   temp_max: number;
   temp_min: number;
 }
+
 export class Weather {
   name: string;
   sys: { country: string };
   main: IWeatherTemps;
-  weather: { description: string, icon: string }[]
+  weather: { description: string, icon: string }[];
       constructor(data?: Weather) {
         const defaults = {
             weather: [{

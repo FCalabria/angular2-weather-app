@@ -1,9 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import {WeatherService} from '../services/weather.service';
 import {Weather} from '../classes/weather';
 import * as _ from "lodash";
-
-import './results-block.component.scss';
 
 import './results-block.component.scss';
 
@@ -12,12 +10,21 @@ import './results-block.component.scss';
     template: require('./results-block.component.html')
 })
 
-export class ResultsBlockComponent {
+export class ResultsBlockComponent implements OnInit {
     forecast = new Weather();
     iconUrl: string = '';
     noResult: boolean = true;
-    constructor() {
+    constructor(private weatherService: WeatherService) {}
+    ngOnInit() {
+        this.setForecast(this.forecast);
+        this.weatherService.receivedWeather
+        .subscribe((weather: Weather) => this.setForecast(weather));
+    }
+    setForecast(forecast: Weather): void {
+        this.forecast = forecast;
         this.noResult = this.forecast.weather[0].icon === '';
-        this.iconUrl = this.noResult ? '' : 'http://openweathermap.org/img/w/' + this.forecast.weather[0].icon + '.png';
+        this.iconUrl = this.noResult
+        ? ''
+        : 'http://openweathermap.org/img/w/' + this.forecast.weather[0].icon + '.png';
     }
 }

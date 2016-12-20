@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { City } from '../classes/city';
 import { CitiesService } from '../services/cities.service';
 import { WeatherService } from '../services/weather.service';
@@ -8,16 +8,17 @@ import './search-block.component.scss';
 @Component({
 	selector: 'search-block',
 	template: require('./search-block.component.html'),
-	providers: [CitiesService, WeatherService]
+	providers: [CitiesService]
 })
 
-export class SearchBlockComponent {
+export class SearchBlockComponent implements OnInit {
 	results: City[] = [];
 	cityQuery: string = '';
 	fullList: City[];
 	constructor(private citiesService: CitiesService,
-							private weatherService: WeatherService) {
-		citiesService.getCities()
+							private weatherService: WeatherService) {}
+	ngOnInit() {
+		this.citiesService.getCities()
 			.subscribe(
 				(resp: City[]) => this.fullList = resp,
 				(error: any) => console.error(error)

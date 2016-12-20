@@ -1,14 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
+import {WeatherService} from './services/weather.service';
 
 import './app.component.scss';
 
 @Component({
     selector: 'my-app',
-    template: require('./app.component.html')
+    template: require('./app.component.html'),
+    providers: [WeatherService]
 })
 
-export class AppComponent implements OnInit {
-    ngOnInit() {
-        console.log('AppComponent initializing...');
-    }
-}
+export class AppComponent {}

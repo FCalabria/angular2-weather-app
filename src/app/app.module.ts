@@ -22,5 +22,4 @@ import {ResultsBlockComponent} from './results-block/results-block.component';
     bootstrap: [AppComponent]
 })
 
-export class AppModule {
-}
+export class AppModule {}
