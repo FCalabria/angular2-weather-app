@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {WeatherService} from './services/weather.service';
+import { Component } from '@angular/core';
+import { WeatherService } from './services/weather.service';
 
 import './app.component.scss';
 
@@ -9,4 +9,4 @@ import './app.component.scss';
     providers: [WeatherService]
 })
 
-export class AppComponent {}
+export class AppComponent { }

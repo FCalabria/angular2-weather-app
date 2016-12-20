@@ -2,7 +2,7 @@
 	<pre>ResultsBlock</pre>
 	<h2 [hidden]="noResult">{{forecast.name}}, {{forecast.sys.country}}</h2>
 	<div [hidden]="noResult">
-		<img src={{iconUrl}}/>
+		<img src={{forecast.getIconFullUrl()}}/>
 		<p>{{forecast.weather[0].description}}</p>
 		<div>
 			<p>Temp actual: {{forecast.main.temp}}ºC</p>

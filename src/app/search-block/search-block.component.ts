@@ -16,18 +16,17 @@ export class SearchBlockComponent implements OnInit {
 	cityQuery: string = '';
 	fullList: City[];
 	constructor(private citiesService: CitiesService,
-							private weatherService: WeatherService) {}
+		private weatherService: WeatherService) { }
 	ngOnInit() {
-		this.citiesService.getCities()
-			.subscribe(
-				(resp: City[]) => this.fullList = resp,
-				(error: any) => console.error(error)
-			)
+		this.citiesService.getCities().subscribe(
+			(resp: City[]) => this.fullList = resp,
+			(error: any) => console.error(error)
+		)
 	}
-	onSubmit():void {
+	onSubmit(): void {
 		this.results = this.citiesService.searchSuggestedCities(this.cityQuery, this.fullList);
 	}
-	selectCity(city: City):void {
+	selectCity(city: City): void {
 		this.weatherService.getWeatherFor(city._id);
 	}
 }
